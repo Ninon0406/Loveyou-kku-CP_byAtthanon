@@ -256,9 +256,9 @@
             currentSlide = 0; // รีเซ็ตดัชนีสไลด์
 
             imageUrls.forEach((url, index) => {
-                // สร้างสไลด์
+                // สร้างสไลด์ (เพิ่ม flex centering เพื่อให้รูปภาพ object-contain อยู่ตรงกลาง)
                 const slide = document.createElement('div');
-                slide.className = 'carousel-slide p-2 sm:p-4'; // เพิ่ม padding สำหรับรูปภาพด้านใน
+                slide.className = 'carousel-slide p-2 sm:p-4 flex justify-center items-center'; // เพิ่ม padding สำหรับรูปภาพด้านใน
                 slide.innerHTML = `<img src="${url}" alt="รูปภาพกิจกรรม ${index + 1}" class="w-full h-full object-contain rounded-lg shadow-xl" onerror="this.onerror=null;this.src='https://placehold.co/800x600/F0F8FF/007bff?text=ไม่พบรูปภาพ';">`;
                 slidesContainer.appendChild(slide);
 
@@ -844,7 +844,8 @@
             </button>
 
             <!-- เนื้อหารายละเอียดที่เลื่อนได้ -->
-            <div id="detail-content" class="h-full grid grid-rows-[minmax(0,500px)_1fr] md:grid-rows-[minmax(0,600px)_1fr] lg:grid-rows-[minmax(0,400px)_1fr] overflow-y-auto custom-scrollbar">
+            <!-- ปรับปรุง: ใช้ minmax(250px, 50vh) เพื่อให้มีสัดส่วนที่เหมาะสมบนมือถือ/ความสูงหน้าจอที่จำกัด -->
+            <div id="detail-content" class="h-full grid grid-rows-[minmax(250px,50vh)_1fr] md:grid-rows-[minmax(0,600px)_1fr] lg:grid-rows-[minmax(0,400px)_1fr] overflow-y-auto custom-scrollbar">
                 
                 <!-- ใหม่: ส่วนสไลด์โชว์รูปภาพ -->
                 <div id="image-carousel-container" class="relative bg-gray-100 overflow-hidden row-span-1 border-b border-gray-200">
