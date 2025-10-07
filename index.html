@@ -92,6 +92,18 @@
             background-color: #90caff;
             border-radius: 4px;
         }
+        
+        /* Table Styling for scores */
+        .score-table th, .score-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .score-table th {
+            background-color: #f0f8ff;
+            color: #007bff;
+            font-weight: 700;
+        }
     </style>
     <!-- Simple JS to simulate scroll reveal, implement Modal, and manage Activity Data -->
     <script>
@@ -135,6 +147,14 @@
                 description: 'เข้าร่วมกิจกรรมจิตอาสาต่างๆ เช่น การช่วยจัดพื้นอิฐ และช่วยงานบวชคุณครู แสดงให้เห็นถึงความมีจิตสาธารณะและความรับผิดชอบต่อสังคมและชุมชน',
                 imageUrl: 'https://placehold.co/800x600/F0F8FF/007bff?text=ACTIVITY+05+CSR',
                 type: 'GENERAL'
+            },
+            // NEW: Project detail for the main project card
+            'project-main': {
+                title: 'แบบจำลองไม้กั้น โดยใช้ เซนเซอร์อัลตราโซนิก',
+                role: 'หัวหน้าโครงงาน/วิจัย',
+                description: 'โครงงานนี้เป็นการประยุกต์ใช้ความรู้ด้านเทคโนโลยี (Arduino/Microcontroller) และฟิสิกส์ (อัลตราโซนิกเซนเซอร์) เพื่อสร้างแบบจำลองระบบไม้กั้นอัตโนมัติที่ทำงานได้อย่างแม่นยำและเสถียร ผลงานนี้ได้รับรางวัลชนะเลิศจากการนำเสนอโครงงานสาขาคอมพิวเตอร์ ซึ่งแสดงให้เห็นถึงความสามารถในการนำหลักการทางวิทยาศาสตร์และเทคโนโลยีมาแก้ปัญหาในชีวิตจริง และเป็นพื้นฐานสำคัญในการต่อยอดสู่การเขียนโปรแกรมควบคุมระบบ AI ในอนาคต',
+                imageUrl: 'https://placehold.co/800x600/F0F8FF/007bff?text=PROJECT+PHOTO',
+                type: 'RESEARCH & INNOVATION'
             }
         };
         // ====================================================================
@@ -296,7 +316,7 @@
             <div class="mb-8 mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full ai-pulse-ring overflow-hidden bg-gray-200 border-4 border-white shadow-xl">
                 <!-- ** REPLACE WITH YOUR PROFILE IMAGE URL (ID: profile-img) ** -->
                 <img id="profile-img" 
-                     src="https://placehold.co/160x160/F0F8FF/007bff?text=YOUR+PHOTO" 
+                     src="...img/IMG_9365" 
                      alt="[รูปภาพ: นายอรรถนนท์ เกษร]" 
                      class="w-full h-full object-cover">
             </div>
@@ -322,26 +342,95 @@
 
         <!-- PROFILE: ข้อมูลส่วนตัวและทักษะ (Data Core) -->
         <section id="profile" class="mb-20 pt-16">
-            <h2 class="text-3xl font-bold mb-8 border-b-4 border-blue-500 pb-2 text-gray-800 inline-block">DATA CORE: ข้อมูลส่วนตัว & ทักษะ</h2>
+            <h2 class="text-3xl font-bold mb-8 border-b-4 border-blue-500 pb-2 text-gray-800 inline-block">DATA CORE: ข้อมูลส่วนตัว & ผลการเรียน</h2>
             <div class="grid md:grid-cols-3 gap-8">
 
-                <!-- Personal Info Card -->
+                <!-- Personal Info Card (Expanded for Scores) -->
                 <div class="ai-card-bg p-8 rounded-xl col-span-1">
                     <h3 class="text-xl font-bold ai-primary mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        ข้อมูลส่วนตัว (PROFILE)
+                        ข้อมูลส่วนตัว & GPAX
                     </h3>
                     <p class="mb-2"><span class="font-semibold text-gray-600">ชื่อเล่น:</span> นนท์</p>
                     <p class="mb-2"><span class="font-semibold text-gray-600">วันเกิด/อายุ:</span> 4 มิถุนายน 2550 (18 ปี)</p>
-                    <p class="mb-2"><span class="font-semibold text-gray-600">สัญชาติ/ศาสนา:</span> ไทย / พุทธ</p>
-                    <p class="mb-2"><span class="font-semibold text-gray-600">ระดับประถม:</span> โรงเรียนสารสาสน์วิเทศสมุทรปราการ</p>
-                    <p class="mb-2"><span class="font-semibold text-gray-600">มัธยม:</span> โรงเรียนสารคามพิทยาคม</p>
                     <p class="mb-2"><span class="font-semibold text-gray-600">แผนการเรียน:</span> SMTE</p>
-                    <p class="text-3xl font-extrabold mt-4 ai-primary"><span class="text-sm font-normal text-gray-500">GPAX (4 เทอม):</span> 3.30</p>
+                    <p class="text-3xl font-extrabold mt-4 ai-primary"><span class="text-base font-normal text-gray-500">GPAX (4 เทอม):</span> 3.30</p>
+                    
+                    <hr class="my-6 border-blue-100">
+                    
+                    <!-- NETSAT SCORE (ใส่คะแนนของคุณที่นี่) -->
+                    <h4 class="text-lg font-bold text-gray-700 mb-3">คะแนน NETSAT (รอบที่ 1)</h4>
+                    <div class="bg-blue-500/10 p-4 rounded-lg">
+                        <table class="w-full text-sm text-gray-700 score-table">
+                            <thead>
+                                <tr>
+                                    <th>วิชา</th>
+                                    <th>คะแนน</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ความฉลาดรู้เฉพาะด้านภาษาไทย</td>
+                                    <td class="font-bold text-blue-700">60.00</td> <!-- กรุณาใส่คะแนนจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td>ความฉลาดรู้เฉพาะด้านภาษาอังกฤษ</td>
+                                    <td class="font-bold text-blue-700">43.00</td> <!-- กรุณาใส่คะแนนจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td>ความฉลาดรู้เฉพาะด้านคณิตศาสตร์</td>
+                                    <td class="font-bold text-blue-700">25.00</td> <!-- กรุณาใส่คะแนนจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td>ความฉลาดรู้เฉพาะด้านวิทยาศาสตร์และเทคโนโลยี</td>
+                                    <td class="font-bold text-blue-700">42.50</td> <!-- กรุณาใส่คะแนนจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td>ความฉลาดรู้เฉพาะด้านฟิสิก</td>
+                                    <td class="font-bold text-blue-700">42.50</td> <!-- กรุณาใส่คะแนนจริงของคุณ -->
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-xs text-gray-500 mt-2 text-right">**อ้างอิงคะแนนสอบ NETSAT (รอบที่ 1) [ปีการศึกษา]**</p>
+                    </div>
                 </div>
 
-                <!-- Skills Card -->
+                <!-- Academic/Skills Card (Expanded for Subject Grades) -->
                 <div class="ai-card-bg p-8 rounded-xl col-span-2">
+                    <h3 class="text-xl font-bold ai-primary mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2zM4 16h16a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1a1 1 0 011-1z"></path></svg>
+                        เกรดเฉลี่ยกลุ่มสาระ (GPA)
+                    </h3>
+                    
+                    <!-- GPA by Subject Group -->
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-gray-700 uppercase border-b pb-1 mb-2">GPA กลุ่มสาระหลัก (4 เทอม)</h4>
+                        <table class="w-full text-base text-gray-700 score-table rounded-lg overflow-hidden">
+                            <thead>
+                                <tr class="bg-blue-500/20">
+                                    <th>กลุ่มสาระ</th>
+                                    <th>GPA (4 เทอม)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-medium text-gray-800">คณิตศาสตร์</td>
+                                    <td class="font-bold text-green-600">3.34</td> <!-- กรุณาใส่เกรดจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td class="font-medium text-gray-800">วิทยาศาสตร์และเทคโนโลยี</td>
+                                    <td class="font-bold text-green-600">3.07</td> <!-- กรุณาใส่เกรดจริงของคุณ -->
+                                </tr>
+                                <tr>
+                                    <td class="font-medium text-gray-800">ภาษาต่างประเทศ</td>
+                                    <td class="font-bold text-green-600">3.30</td> <!-- กรุณาใส่เกรดจริงของคุณ -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!-- Skills -->
                     <h3 class="text-xl font-bold ai-primary mb-4 flex items-center">
                         <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         ทักษะ (SKILLS)
@@ -438,7 +527,7 @@
                      onclick="openDetailModal('activity-03')">
                     <p class="text-lg font-semibold mb-2 text-gray-800">โครงการเพิ่มทักษะทางวิชาการ (SMTE)</p>
                     <p class="text-sm text-gray-500 mb-2">บทบาท: ผู้เข้าร่วม</p>
-                    <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ได้ลองสิ่งใหม่ๆ ไม่เยอะมาก เช่น การผ่าปลา, การเขียนแบบ, การทำยา, การวิเคราะห์ลักษณะโรคจากภาพ...</p>
+                    <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ได้ลองสิ่งใหม่ๆ ไม่เยอะมาก เช่น การผ่าปลา, การเขียนแบบ, การทำยา, และการวิเคราะห์ลักษณะโรคจากภาพ ทำให้ได้ลองสิ่งใหม่ๆ ที่ไม่เคยทำมาก่อน...</p>
                     <span class="text-sm font-bold ai-primary mt-2 block">คลิกดูรายละเอียด & รูปภาพ</span>
                 </div>
             </div>
