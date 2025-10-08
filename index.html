@@ -52,7 +52,7 @@
         /* วงแหวนกะพริบของรูปโปรไฟล์ (อ่อนโยน) */
         @keyframes pulse-ring {
             0% {
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.715);
             }
             100% {
                 box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
@@ -115,22 +115,19 @@
             scroll-snap-align: start;
         }
     </style>
-    <!-- JavaScript ง่ายๆ สำหรับจำลองการเผยส่วนของหน้าจอ, จัดการ Modal และข้อมูลกิจกรรม -->
+    
     <script>
-        // ตัวแปรส่วนกลางสำหรับติดตามดัชนีสไลด์ปัจจุบัน
+        
         let currentSlide = 0;
         let currentImageUrls = [];
         
-        // ====================================================================
-        // START: ข้อมูลกิจกรรม (สำหรับใส่รูปภาพและรายละเอียดกิจกรรม)
-        // ** IMPORTANT: เปลี่ยน 'imageUrl' เป็น 'imageUrls' (เป็น Array) **
-        // ====================================================================
+        
         const activityDetails = {
             'activity-01': {
                 title: 'พี่ Staff อบรมทำวิจัยและโครงงานคณิตศาสตร์',
                 role: 'พี่ Staff',
                 description: 'ได้รับหน้าที่เป็นพี่ Staff ในการอบรมทำวิจัยและโครงงานคณิตศาสตร์ของโรงเรียน มีหน้าที่สอนน้องๆ ใช้ AI ในการช่วยทำโครงงาน รวมถึงการพิสูจน์และการทำวิจัยโครงงาน ได้เรียนรู้ทักษะการทำงานร่วมกับผู้อื่น และการใช้ความรู้ด้านคณิตศาสตร์เพื่อแก้ปัญหา',
-                type: 'TECH & AI',
+                type: 'TECH & AI & MATH & AI',
                 imageUrls: [
                     'https://media.discordapp.net/attachments/1397231164267302912/1425021572535681064/IMG_2365.jpg?ex=68e763c2&is=68e61242&hm=909d2081cfad019257ac3cf2d301c18efd42c8f5b94757c85362c9a9ddd3e70b&=&format=webp&width=1104&height=737',
                     'https://media.discordapp.net/attachments/1397231164267302912/1425012813952454726/IMG_5309.jpg?ex=68e75b9a&is=68e60a1a&hm=fdcd139268dcf529dc55c88b48ea1b88dc7d6eae3f881a09c35f991efb0c732d&=&format=webp&width=911&height=683',
@@ -153,7 +150,7 @@
                 title: 'โครงการเพิ่มทักษะทางวิชาการ (SMTE)',
                 role: 'ผู้เข้าร่วม',
                 description: 'ค่ายนี้จัดขึ้นเพื่อเพิ่มทักษะทางวิชาการให้แก่นักเรียนห้องเรียนพิเศษ SMTE มีกิจกรรมหลากหลาย เช่น การเขียนแบบ, การผ่าปลา, การทำยา, และการวิเคราะห์ลักษณะโรคจากภาพ ทำให้ได้ลองสิ่งใหม่ๆ ที่ไม่เคยทำมาก่อน',
-                type: 'TECH & AI',
+                type: 'TECH & AI & MED &  ENGINNEER',
                 imageUrls: [
                     'https://cdn.discordapp.com/attachments/1397231164267302912/1425044062154522715/IMG_1171.jpg?ex=68e62734&is=68e4d5b4&hm=8ec59c071be81ff6b990421698e3b38d166a473fee083f5c100ad50cb90f452c&',
                     'https://cdn.discordapp.com/attachments/1063384116965425214/1425366009014915195/IMG_1173.jpg?ex=68e7530a&is=68e6018a&hm=3a13dc0c16cf6fb8109a74816f099c4bc027cb8088b4ddde4902e9ce77f20d48&',
@@ -176,7 +173,7 @@
                 ]
             },
             'activity-05': {
-                title: 'กิจกรรมจิตอาสา',
+                title: 'กิจกรรมจิตอาสาช่วยงานบวชครู&จัดพื้นอิฐโรงเรียนต่างอำเภอ',
                 role: 'อาสาสมัคร',
                 description: 'เข้าร่วมกิจกรรมจิตอาสาต่างๆ เช่น การช่วยจัดพื้นอิฐ และช่วยงานบวชคุณครู แสดงให้เห็นถึงความมีจิตสาธารณะและความรับผิดชอบต่อสังคมและชุมชน',
                 type: 'GENERAL',
@@ -187,12 +184,34 @@
                     'https://media.discordapp.net/attachments/1397231164267302912/1425012704912871555/IMG_5298.jpg?ex=68e75b80&is=68e60a00&hm=6de03551cefb544b3f636c9e96dd3628e5d84376110de2840b17dd65c19c877c&=&format=webp&width=1097&height=683'
                 ]
             },
+            'activity-06': {
+                title: 'ค่ายวิชาการ ณ สถาบันวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย',
+                role: 'ผู้เข้าร่วม',
+                description: 'ได้เข้าร่วมอบรมเกี่ยวกับวิทยาศาสตร์และเทคโนโลยีใหม่ๆ ได้ความรู้จากสถาบันวิจัย และได้ความรู้ในการวิจัย',
+                type: 'TECH & AI & SCIENCE',
+                imageUrls: [
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425032670194171945/IMG_1437.jpg?ex=68e76e18&is=68e61c98&hm=4a7d14c45cebdca3efa41a71a3a1dd48ed13cc410f86deda99c9d021c0d056ed&=&format=webp&width=1025&height=683',
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425455766202089582/IMG_1182.jpg?ex=68e7a6a2&is=68e65522&hm=e9735c524cef11eb64b634deb0bffad331b6d3153a43f244c6790f3f46deef8a&=&format=webp&width=1025&height=683',
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425456028853473361/IMG_1184.jpg?ex=68e7a6e0&is=68e65560&hm=5cf04567f947898337131665bbfa60c804385934f9277fdf8c287770596a59c0&=&format=webp&width=1104&height=737'
+                ]
+            },
+            'activity-07': {
+                title: 'กิจกรรมจิตอาสาเข้าร่วมปลูกป่าชายเลน',
+                role: 'อาสาสมัคร',
+                description: 'ได้ปลูกป่าชายเลน และได้ชมธรรมชาติใหม่ๆ ที่จังหวัดสมุทรสาคร ',
+                type: 'GENERAL',
+                imageUrls: [
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425455852416012378/IMG_1183.jpg?ex=68e7a6b6&is=68e65536&hm=2e1a65cf6c939d0ee716db7c1f6918c13b6c82cb9c596e25b3d066a762949817&=&format=webp&width=1104&height=737',
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425455765673611304/IMG_1181.jpg?ex=68e7a6a2&is=68e65522&hm=b3d3f782debe0ce15d06298259ed122130fdfe919d929e4e98927f4d3b76c603&=&format=webp&width=1025&height=683',
+                    'https://media.discordapp.net/attachments/1397231164267302912/1425012705483554816/IMG_5300.jpg?ex=68e75b80&is=68e60a00&hm=76905ee0b5d5c2a0c1113b51950d26bf8f5978b337504b114d81f64d7f70943b&=&format=webp&width=911&height=683'
+                ]
+            },
             // NEW: Project detail for the main project card
             'project-main': {
                 title: 'แบบจำลองไม้กั้น โดยใช้ เซนเซอร์อัลตราโซนิก',
                 role: 'หัวหน้าโครงงาน/วิจัย',
                 description: 'โครงงานนี้เป็นการประยุกต์ใช้ความรู้ด้านเทคโนโลยี (Arduino/Microcontroller) และฟิสิกส์ (อัลตราโซนิกเซนเซอร์) เพื่อสร้างแบบจำลองระบบไม้กั้นอัตโนมัติที่ทำงานได้อย่างแม่นยำและเสถียร ผลงานนี้ได้รับรางวัลชนะเลิศจากการนำเสนอโครงงานสาขาคอมพิวเตอร์ ซึ่งแสดงให้เห็นถึงความสามารถในการนำหลักการทางวิทยาศาสตร์และเทคโนโลยีมาแก้ปัญหาในชีวิตจริง และเป็นพื้นฐานสำคัญในการต่อยอดสู่การเขียนโปรแกรมควบคุมระบบ AI ในอนาคต',
-                type: 'RESEARCH & INNOVATION',
+                type: 'RESEARCH & INNOVATION & TECH & AI',
                 imageUrls: [
                     'https://media.discordapp.net/attachments/1397231164267302912/1425013109512343593/IMG_5352.jpg?ex=68e75be0&is=68e60a60&hm=596ca8a703e3e43c9d20c603ac496dacad5badb3b025cfa423041dae19d479e8&=&format=webp&width=512&height=683',
                     'https://media.discordapp.net/attachments/1397231164267302912/1425013435934052363/IMG_5356.jpg?ex=68e75c2e&is=68e60aae&hm=9e3ac01d3b7553b43ffee1eb1239721112716dd53096328cdbf7100d4a6a6826&=&format=webp&width=911&height=683',
@@ -201,18 +220,8 @@
                 ]
             }
         };
-        // ====================================================================
-        // END: ข้อมูลกิจกรรม
-        // ====================================================================
         
-        // ====================================================================
-        // ตรรกะของสไลด์โชว์ (CAROUSEL LOGIC)
-        // ====================================================================
-        
-        /**
-         * ฟังก์ชันสำหรับจัดการการเลื่อนสไลด์
-         * @param {number} n - ทิศทางในการเลื่อน (+1 ไปข้างหน้า, -1 ถอยหลัง)
-         */
+
         function changeSlide(n) {
             currentSlide += n;
             const totalSlides = currentImageUrls.length;
@@ -411,9 +420,7 @@
             }
         });
         
-        // ====================================================================
-        // ตรรกะการสัมผัส/ปัดสำหรับสไลด์โชว์ (รองรับมือถือ)
-        // ====================================================================
+        
         let touchStartX = 0;
 
         function handleTouchStart(e) {
@@ -478,9 +485,9 @@
     <header id="top" class="header-bg relative pt-16 pb-24 md:pt-24 md:pb-32 text-center border-b border-gray-200">
         <div class="relative z-10 max-w-4xl mx-auto px-6">
             
-            <!-- Placeholder รูปโปรไฟล์ (พร้อม ID ให้คุณเปลี่ยนรูป) -->
+            
             <div class="mb-8 mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full ai-pulse-ring overflow-hidden bg-gray-200 border-4 border-white shadow-xl">
-                <!-- ** แทนที่ด้วย URL รูปภาพโปรไฟล์ของคุณ (ID: profile-img) ** -->
+                
                 <img id="profile-img" 
                      src="https://media.discordapp.net/attachments/1397231164267302912/1425012814363234334/IMG_5310.jpg?ex=68e75b9a&is=68e60a1a&hm=060cde98616512068b9260d2d4bfa79d74aaf64950947d13d8802553d097b8ae&=&format=webp&width=683&height=683" 
                      alt="[รูปภาพ: นายอรรถนนท์ เกษร]" 
@@ -501,6 +508,10 @@
                     "คอมพิวเตอร์คืออนาคต <span class="font-bold">และ AI คือสิ่งที่ผมอยากร่วมพัฒนา</span>"
                 </span>
             </div>
+            <br>
+            <br>
+            <a href="https://drive.google.com/file/d/1i78s-kSkF2MhnbCySI2WupTA5nBwHbJF/view?usp=sharing" target="_blank" class="text-base sm:text-lg font-semibold ai-primary inline-block px-8 py-3 rounded-full bg-blue-500/10 border border-blue-200 transition-all duration-300 hover:bg-blue-500/20">คลิกดู ไฟล์ Portfolio</a>
+            <a href="https://portfolio.kku.ac.th/port-preview/68e65b69965513e98db106a1" target="_blank" class="text-base sm:text-lg font-semibold ai-primary inline-block px-8 py-3 rounded-full bg-blue-500/10 border border-blue-200 transition-all duration-300 hover:bg-blue-500/20">คลิกดู e-portfolio kku</a>
         </div>
     </header>
 
@@ -526,10 +537,9 @@
                     <div>
 
                     </div>
-                    <div class="hidden">
-                        ////
-                    </div>
                     
+                    <br>
+                
                     <a href="https://drive.google.com/drive/folders/13AM8EKMR8f1newpCrtvv92axA3pNdXT3?usp=drive_link" target="_blank" class="items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-blue-500 hover:bg-blue-600 transition-colors shadow-md">
                     ดูใบประกอบผลการเรียน
                     </a>
@@ -717,6 +727,14 @@
                     <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ได้ลองสิ่งใหม่ๆ ไม่เยอะมาก เช่น การผ่าปลา, การเขียนแบบ, การทำยา, และการวิเคราะห์ลักษณะโรคจากภาพ ทำให้ได้ลองสิ่งใหม่ๆ ที่ไม่เคยทำมาก่อน...</p>
                     <span class="text-sm font-bold ai-primary mt-2 block">คลิกดูรายละเอียด & รูปภาพ</span>
                 </div>
+
+                <div class="ai-card-bg p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-blue-400"
+                     onclick="openDetailModal('activity-06')">
+                    <p class="text-lg font-semibold mb-2 text-gray-800">ค่ายวิชาการ ณ สถาบันวิทยาศาสตร์และเทคโนโลยีแห่งประเทศไทย</p>
+                    <p class="text-sm text-gray-500 mb-2">บทบาท: ผู้เข้าร่วม</p>
+                    <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ได้เข้าร่วมอบรมเกี่ยวกับวิทยาศาสตร์และเทคโนโลยีใหม่ๆ ได้ความรู้จากสถาบันวิจัย และได้ความรู้ในการวิจัย</p>
+                    <span class="text-sm font-bold ai-primary mt-2 block">คลิกดูรายละเอียด & รูปภาพ</span>
+                </div>
             </div>
             
             <!-- กลุ่ม 2: General Skills (ทักษะทั่วไป) -->
@@ -740,6 +758,16 @@
                     <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ช่วยจัดพื้นอิฐ, ช่วยงานบวชคุณครู แสดงถึงความรับผิดชอบต่อสังคม...</p>
                     <span class="text-sm font-bold ai-primary mt-2 block">คลิกดูรายละเอียด & รูปภาพ</span>
                 </div>
+
+                <div class="ai-card-bg p-6 rounded-xl border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:border-blue-400"
+                     onclick="openDetailModal('activity-07')">
+                    <p class="text-lg font-semibold mb-2 text-gray-800">กิจกรรมจิตอาสาเข้าร่วมปลูกป่าชายเลน</p>
+                    <p class="text-sm text-gray-500 mb-2">บทบาท: อาสาสมัคร</p>
+                    <p class="text-gray-700 line-clamp-3">สิ่งที่ได้: ช่วยจัดพื้นอิฐ, ช่วยงานบวชคุณครู แสดงถึงความรับผิดชอบต่อสังคม...</p>
+                    <span class="text-sm font-bold ai-primary mt-2 block">คลิกดูรายละเอียด & รูปภาพ</span>
+                </div>
+
+                
                 
             </div>
         </section>
@@ -756,7 +784,7 @@
                 
                 <!-- Placeholder เกียรติบัตร 1 (ID: cert-01-img) -->
                 <div class="ai-card-bg p-4 rounded-xl text-center cursor-pointer hover:shadow-2xl hover:border-blue-400 transition-all duration-300" onclick="openImageModal('cert-01-img')">
-                    <!-- ** แทนที่ด้วย URL รูปภาพเกียรติบัตรของคุณ (ID: cert-01-img) ** -->
+                    
                     <img id="cert-01-img" 
                          src="https://media.discordapp.net/attachments/1397231164267302912/1425033044078886912/IMG_5349.jpg?ex=68e6c5b1&is=68e57431&hm=73bfc71dc46d4d86ea01118bd1e3d102e745ebe262ffc4f329a2ba875ed668e5&=&format=webp&width=980&height=683" 
                          alt="[ภาพ: เกียรติบัตรโครงงานคอมพิวเตอร์]" 
@@ -767,7 +795,7 @@
                 
                 <!-- Placeholder เกียรติบัตร 2 (ID: cert-02-img) -->
                 <div class="ai-card-bg p-4 rounded-xl text-center cursor-pointer hover:shadow-2xl hover:border-blue-400 transition-all duration-300" onclick="openImageModal('cert-02-img')">
-                    <!-- ** แทนที่ด้วย URL รูปภาพเกียรติบัตรของคุณ (ID: cert-02-img) ** -->
+                    
                     <img id="cert-02-img" 
                          src="https://media.discordapp.net/attachments/1397231164267302912/1425033043864715285/IMG_5350.jpg?ex=68e61cf1&is=68e4cb71&hm=e7e49eebdac66cc93fd662f189b73b39ed5f2bb83dc68e765b0d01f62532d825&=&format=webp&width=1195&height=856" 
                          alt="[ภาพ: เกียรติบัตรโครงการ SMTE]" 
@@ -778,7 +806,7 @@
                 
                 <!-- Placeholder เกียรติบัตร 3 (ID: cert-03-img) -->
                 <div class="ai-card-bg p-4 rounded-xl text-center cursor-pointer hover:shadow-2xl hover:border-blue-400 transition-all duration-300" onclick="openImageModal('cert-03-img')">
-                    <!-- ** แทนที่ด้วย URL รูปภาพเกียรติบัตรของคุณ (ID: cert-03-img) ** -->
+                    
                     <img id="cert-03-img" 
                          src="https://media.discordapp.net/attachments/1397231164267302912/1425037297803591722/IMG_5384.png?ex=68e620e7&is=68e4cf67&hm=e0e3f204bc9189a135096f7decc3452c67ecd3fae8f8b806b850fc2eca1d5c2e&=&format=webp&quality=lossless" 
                          alt="[ภาพ: เกียรติบัตรค่าย มมส]" 
@@ -789,7 +817,7 @@
                 
                 <!-- Placeholder เกียรติบัตร 4 (ID: cert-04-img) -->
                 <div class="ai-card-bg p-4 rounded-xl text-center cursor-pointer hover:shadow-2xl hover:border-blue-400 transition-all duration-300" onclick="openImageModal('cert-04-img')">
-                    <!-- ** แทนที่ด้วย URL รูปภาพเกียรติบัตรของคุณ (ID: cert-04-img) ** -->
+                    
                     <img id="cert-04-img" 
                          src="https://media.discordapp.net/attachments/1397231164267302912/1425033043495747604/IMG_5348.jpg?ex=68e61cf1&is=68e4cb71&hm=81d6bd8fb891cec589d0d93aecb49aac2d5c14070cd15201a01089e12ab87820&=&format=webp&width=1255&height=856" 
                          alt="[ภาพ: เกียรติบัตรพี่ Staff]" 
@@ -828,15 +856,27 @@
                 </div>
 
                 <div class="ai-card-bg p-4 rounded-xl text-center opacity-80 cursor-not-allowed">
-                    <img src="https://placehold.co/300x200/f8f9fa/adb5bd?text=OTHER+CERT+06" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
+                    <img src="https://media.discordapp.net/attachments/1397231164267302912/1425032668273184939/IMG_1434.jpg?ex=68e76e17&is=68e61c97&hm=14c41e95ab3dffe7f8dc98e8eb1916396fdb3169cc3b153b2d6f7de466ebf919&=&format=webp&width=1025&height=683" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
                     <p class="text-sm font-semibold text-gray-600">อื่นๆ (กิจกรรม)</p>
-                    <p class="text-xs text-gray-400">เกียรติบัตรด้านกิจกรรม</p>
+                    <p class="text-xs text-gray-400">ด้านกิจกรรม</p>
                 </div>
 
                 <div class="ai-card-bg p-4 rounded-xl text-center opacity-80 cursor-not-allowed">
-                    <img src="https://placehold.co/300x200/f8f9fa/adb5bd?text=OTHER+CERT+06" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
+                    <img src="https://media.discordapp.net/attachments/1397231164267302912/1425032669816950784/704A7061.jpg?ex=68e76e18&is=68e61c98&hm=fa0414be0d1035a9c6f8969d6d9827bc0d1c41c20e25fbb5a5de56f98cf6f064&=&format=webp&width=1025&height=683" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
                     <p class="text-sm font-semibold text-gray-600">อื่นๆ (กิจกรรม)</p>
-                    <p class="text-xs text-gray-400">เกียรติบัตรด้านกิจกรรม</p>
+                    <p class="text-xs text-gray-400">ด้านกิจกรรม</p>
+                </div>
+
+                <div class="ai-card-bg p-4 rounded-xl text-center opacity-80 cursor-not-allowed">
+                    <img src="https://media.discordapp.net/attachments/1397231164267302912/1425013518242938932/IMG_5369.jpg?ex=68e75c42&is=68e60ac2&hm=5c436f0ed32b7d2f05fdc0fc9e16bac810f4017e329632973d4b095710f41402&=&format=webp&width=1025&height=683" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
+                    <p class="text-sm font-semibold text-gray-600">อื่นๆ (กิจกรรม)</p>
+                    <p class="text-xs text-gray-400">ด้านกิจกรรม</p>
+                </div>
+
+                <div class="ai-card-bg p-4 rounded-xl text-center opacity-80 cursor-not-allowed">
+                    <img src="https://media.discordapp.net/attachments/1397231164267302912/1425013517521649736/IMG_5366.jpg?ex=68e75c42&is=68e60ac2&hm=7ddc0b38ef4d89ef6c9bfd50a00e9a3dad14ef7301703fd38489903332dacacf&=&format=webp&width=1025&height=683" alt="[ภาพ: เกียรติบัตรอื่นๆ]" class="w-full h-auto rounded-lg mb-3 object-cover border border-gray-200">
+                    <p class="text-sm font-semibold text-gray-600">อื่นๆ (กิจกรรม)</p>
+                    <p class="text-xs text-gray-400">ด้านกิจกรรม</p>
                 </div>
             </div>
         </section>
@@ -895,7 +935,7 @@
             </button>
 
             <!-- เนื้อหารายละเอียดที่เลื่อนได้ -->
-            <!-- ปรับปรุง: ใช้ minmax(250px, 50vh) เพื่อให้มีสัดส่วนที่เหมาะสมบนมือถือ/ความสูงหน้าจอที่จำกัด -->
+           
             <div id="detail-content" class="h-full grid grid-rows-[minmax(250px,50vh)_1fr] md:grid-rows-[minmax(0,600px)_1fr] lg:grid-rows-[minmax(0,400px)_1fr] overflow-y-auto custom-scrollbar">
                 
                 <!-- ใหม่: ส่วนสไลด์โชว์รูปภาพ -->
